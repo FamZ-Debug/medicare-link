@@ -1,13 +1,11 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
     reactStrictMode: true,
     output: 'export',
     basePath: '/medicare-link',
     assetPrefix: '/medicare-link',
     images: {
         unoptimized: true,
-        formats: ['image/avif', 'image/webp'],
     },
     experimental: {
         optimizePackageImports: ['lucide-react'],
