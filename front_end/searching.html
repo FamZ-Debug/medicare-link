@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กำลังค้นหา - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        @keyframes ping {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            75%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .animate-ping {
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <a href="grab-search.html"
+                style="color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+            <h3 style="font-weight: 800; text-align: center; flex: 1;">กำลังค้นหา...</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div
+            style="flex: 1; background: #f3f4f6; border-radius: 1.5rem 1.5rem 0 0; position: relative; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);">
+            <!-- Search Animation -->
+            <div
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center;">
+                <div style="position: relative; width: 8rem; height: 8rem;">
+                    <div class="animate-ping"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #14b8a6; border-radius: 50%;">
+                    </div>
+                    <div
+                        style="position: relative; z-index: 10; width: 100%; height: 100%; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1);">
+                        <svg class="animate-pulse" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#14b8a6" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                    </div>
+                </div>
+                <p id="searchText" style="margin-top: 2rem; color: var(--text-muted); font-weight: 500;">
+                    กำลังค้นหาผู้ดูแลในพื้นที่...</p>
+            </div>
+
+            <!-- Mock Staff Pins (will appear during search) -->
+            <div id="staffPins" style="display: none;">
+                <div class="animate-bounce"
+                    style="position: absolute; top: 20%; left: 20%; display: flex; flex-direction: column; align-items: center; animation-delay: 0s;">
+                    <div
+                        style="background: white; padding: 0.25rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 0.25rem; font-size: 0.625rem; font-weight: 700; white-space: nowrap;">
+                        0.5 กม.</div>
+                    <div
+                        style="padding: 0.375rem; border-radius: 50%; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 2px solid white; background: #14b8a6;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="animate-bounce"
+                    style="position: absolute; top: 60%; left: 70%; display: flex; flex-direction: column; align-items: center; animation-delay: 0.5s;">
+                    <div
+                        style="background: white; padding: 0.25rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 0.25rem; font-size: 0.625rem; font-weight: 700; white-space: nowrap;">
+                        1.2 กม.</div>
+                    <div
+                        style="padding: 0.375rem; border-radius: 50%; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 2px solid white; background: #f97316;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="animate-bounce"
+                    style="position: absolute; top: 40%; left: 50%; display: flex; flex-direction: column; align-items: center; animation-delay: 1s;">
+                    <div
+                        style="background: white; padding: 0.25rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 0.25rem; font-size: 0.625rem; font-weight: 700; white-space: nowrap;">
+                        2.0 กม.</div>
+                    <div
+                        style="padding: 0.375rem; border-radius: 50%; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 2px solid white; background: #14b8a6;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/location-service.js"></script>
+    <script>
+        // Set dynamic search text
+        window.addEventListener('load', async () => {
+            const district = localStorage.getItem('selectedDistrict') || 'พื้นที่ใกล้เคียง';
+            const searchText = document.getElementById('searchText');
+
+            if (district === 'GPS-Based') {
+                const pos = LocationService.getFromLocal('userLocation');
+                if (pos) {
+                    searchText.textContent = 'กำลังขอข้อมูลที่อยู่จากพิกัด GPS...';
+                    const address = await LocationService.reverseGeocode(pos.lat, pos.lng);
+                    searchText.textContent = `กำลังค้นหาผู้ดูแลใน: ${address.split(',')[0]}...`;
+                }
+            } else {
+                searchText.textContent = `กำลังค้นหาผู้ดูแลในเขต: ${district}...`;
+            }
+        });
+
+        // Show pins after 1 second
+        setTimeout(() => {
+            document.getElementById('staffPins').style.display = 'block';
+        }, 1000);
+
+        // Redirect to results after 3.5 seconds (slightly longer to show dynamic text)
+        setTimeout(() => {
+            window.location.href = 'search-results.html';
+        }, 3500);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกรูปแบบการจอง - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav" style="padding: 2rem 2rem 1rem;">
+            <a href="home.html" style="color: var(--text-main); text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+            <h3 style="font-weight: 800;">เลือกรูปแบบการจอง</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content" style="padding: 1rem 2rem;">
+            <p style="color: var(--text-muted); margin-bottom: 2rem; text-align: center;">เลือกรูปแบบที่ต้องการใช้บริการ
+            </p>
+
+            <!-- Quick Booking Card -->
+            <div onclick="selectMode('grab')" class="fade-in"
+                style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); padding: 2rem; border-radius: 1.5rem; margin-bottom: 1.5rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 15px rgba(20, 184, 166, 0.2);">
+                <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div
+                        style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.2); border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div style="flex: 1; color: white;">
+                        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">จองด่วน</h2>
+                        <p style="font-size: 0.875rem; color: rgba(255,255,255,0.9); line-height: 1.5;">
+                            ต้องการผู้ดูแลเดี๋ยวนี้<br>
+                            ค้นหาผู้ดูแลที่พร้อมให้บริการทันที
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: white; margin-bottom: 0.5rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span style="font-size: 0.875rem;">รับบริการภายใน 30 นาที</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: white; margin-bottom: 0.5rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span style="font-size: 0.875rem;">ค้นหาตามพิกัดปัจจุบัน</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: white;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span style="font-size: 0.875rem;">เหมาะสำหรับเหตุฉุกเฉิน</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advance Booking Card -->
+            <div onclick="selectMode('booking')" class="fade-in"
+                style="animation-delay: 0.1s;
+                background: white; padding: 2rem; border-radius: 1.5rem; border: 2px solid #e5e7eb; cursor: pointer; transition: all 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div
+                        style="width: 4rem; height: 4rem; background: #f0fdfa; border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <h2
+                            style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-main);">
+                            จองล่วงหน้า</h2>
+                        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5;">
+                            วางแผนการใช้บริการล่วงหน้า<br>
+                            เลือกวัน เวลา และผู้ดูแลที่ต้องการ
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 0.75rem;">
+                    <div
+                        style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span style="font-size: 0.875rem;">เลือกวันและเวลาที่สะดวก</span>
+                    </div>
+                    <div
+                        style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span style="font-size: 0.875rem;">ดูโปรไฟล์และเลือกผู้ดูแล</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span style="font-size: 0.875rem;">เหมาะสำหรับการวางแผน</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Note -->
+            <div class="fade-in"
+                style="animation-delay: 0.2s; margin-top: 1.5rem; background: #eff6ff; border: 1px solid #bfdbfe; padding: 1rem; border-radius: 0.75rem;">
+                <div style="display: flex; gap: 0.75rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"
+                        style="flex-shrink: 0; margin-top: 0.125rem;">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="16" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                    <p style="font-size: 0.875rem; color: #1e40af; line-height: 1.5;">
+                        <strong>คำแนะนำ:</strong> หากต้องการใช้บริการทันที แนะนำให้เลือก "จองด่วน"
+                        แต่หากต้องการวางแผนล่วงหน้า สามารถเลือก "จองล่วงหน้า" เพื่อเลือกผู้ดูแลที่ต้องการได้
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectMode(mode) {
+            // Store selected mode
+            localStorage.setItem('bookingMode', mode);
+
+            if (mode === 'grab') {
+                // Quick booking - go to grab search
+                window.location.href = 'grab-search.html';
+            } else {
+                // Advance booking - go to booking search
+                window.location.href = 'booking-search.html';
+            }
+        }
+
+        // Add hover effects
+        document.querySelectorAll('[onclick^="selectMode"]').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-4px)';
+                if (this.style.background.includes('linear-gradient')) {
+                    this.style.boxShadow = '0 20px 25px rgba(20, 184, 166, 0.3)';
+                } else {
+                    this.style.borderColor = '#14b8a6';
+                    this.style.boxShadow = '0 4px 6px rgba(20, 184, 166, 0.1)';
+                }
+            });
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+                if (this.style.background.includes('linear-gradient')) {
+                    this.style.boxShadow = '0 10px 15px rgba(20, 184, 166, 0.2)';
+                } else {
+                    this.style.borderColor = '#e5e7eb';
+                    this.style.boxShadow = '0 1px 3px rgba(0,0,0,0.05)';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฝากประกาศหาผู้ดูแล - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <a href="search-results.html" style="color: var(--text-main); text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+            <h3 style="font-weight: 800;">ฝากประกาศหาผู้ดูแล</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content">
+            <!-- Info Card -->
+            <div class="fade-in"
+                style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 1.25rem; border-radius: 1.5rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; gap: 1rem;">
+                    <div style="flex-shrink: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 style="font-weight: 700; color: #1e40af; margin-bottom: 0.5rem;">ไม่พบผู้ดูแลที่ว่าง?</h4>
+                        <p style="font-size: 0.875rem; color: #3b82f6; line-height: 1.5;">
+                            คุณสามารถฝากประกาศหาผู้ดูแลได้ เมื่อมีผู้ดูแลที่สนใจ ระบบจะแจ้งเตือนให้คุณทราบทันที
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="fade-in"
+                style="animation-delay: 0.1s; background: white; padding: 1.5rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <h3 style="font-weight: 700; margin-bottom: 1.5rem;">รายละเอียดงาน</h3>
+
+                <!-- Service Type -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">ประเภทบริการ</label>
+                    <select id="serviceType" class="input-field">
+                        <option value="">-- เลือกบริการ --</option>
+                        <option value="elderly">ดูแลผู้สูงอายุ</option>
+                        <option value="hospital">พาไปหาหมอ</option>
+                        <option value="bedridden">ดูแลผู้ป่วยติดเตียง</option>
+                        <option value="rehab">ฟื้นฟูสมรรถภาพ</option>
+                        <option value="wound">ล้างแผล</option>
+                        <option value="checkup">ตรวจสุขภาพ</option>
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">วันที่ต้องการ</label>
+                    <input type="date" id="date" class="input-field" min="">
+                </div>
+
+                <!-- Time -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">เวลา</label>
+                    <input type="time" id="time" class="input-field">
+                </div>
+
+                <!-- Duration -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">ระยะเวลา
+                        (ชั่วโมง)</label>
+                    <input type="number" id="duration" class="input-field" placeholder="เช่น 2" min="1" max="24">
+                </div>
+
+                <!-- Location -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">สถานที่</label>
+                    <select id="location" class="input-field">
+                        <option value="">-- เลือกสถานที่ --</option>
+                        <option value="home">บ้านพัก (ที่อยู่ตามโปรไฟล์)</option>
+                        <option value="hospital1">โรงพยาบาลจุฬาลงกรณ์</option>
+                        <option value="hospital2">โรงพยาบาลรามาธิบดี</option>
+                        <option value="hospital3">โรงพยาบาลศิริราช</option>
+                    </select>
+                </div>
+
+                <!-- Budget -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">งบประมาณ
+                        (บาท)</label>
+                    <input type="number" id="budget" class="input-field" placeholder="เช่น 500" min="0" step="50">
+                </div>
+
+                <!-- Notes -->
+                <div class="input-group">
+                    <label
+                        style="font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; display: block;">หมายเหตุ
+                        (ไม่บังคับ)</label>
+                    <textarea id="notes" class="input-field" placeholder="รายละเอียดเพิ่มเติม..."
+                        style="min-height: 6rem; resize: vertical;"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="postJob()" class="btn btn-primary fade-in"
+                style="animation-delay: 0.2s; width: 100%; padding: 1rem; margin-bottom: 1rem;">
+                ฝากประกาศ
+            </button>
+
+            <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; line-height: 1.5;">
+                หลังจากฝากประกาศ ผู้ดูแลที่สนใจจะติดต่อกลับมา<br>
+                คุณจะได้รับการแจ้งเตือนทาง SMS และแอปพลิเคชัน
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+
+        function postJob() {
+            const serviceType = document.getElementById('serviceType').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const duration = document.getElementById('duration').value;
+            const location = document.getElementById('location').value;
+            const budget = document.getElementById('budget').value;
+            const notes = document.getElementById('notes').value;
+
+            // Validation
+            if (!serviceType) {
+                alert('กรุณาเลือกประเภทบริการ');
+                return;
+            }
+            if (!date) {
+                alert('กรุณาเลือกวันที่');
+                return;
+            }
+            if (!time) {
+                alert('กรุณาเลือกเวลา');
+                return;
+            }
+            if (!duration || duration < 1) {
+                alert('กรุณาระบุระยะเวลา');
+                return;
+            }
+            if (!location) {
+                alert('กรุณาเลือกสถานที่');
+                return;
+            }
+            if (!budget || budget < 0) {
+                alert('กรุณาระบุงบประมาณ');
+                return;
+            }
+
+            // Save job posting
+            const jobData = {
+                serviceType,
+                date,
+                time,
+                duration,
+                location,
+                budget,
+                notes,
+                postedAt: new Date().toISOString()
+            };
+
+            localStorage.setItem('jobPosting', JSON.stringify(jobData));
+
+            alert('ฝากประกาศเรียบร้อย!\n\nเราจะแจ้งเตือนเมื่อมีผู้ดูแลสนใจ');
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+
+</html>

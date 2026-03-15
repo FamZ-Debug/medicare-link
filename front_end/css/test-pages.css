@@ -1,0 +1,217 @@
+/* Test All Pages Styling */
+body {
+    overflow: auto !important;
+    background: #f9fafb;
+}
+
+.test-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.page-link {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4rem;
+    height: 4rem;
+    background: var(--primary-gradient);
+    opacity: 0.05;
+    border-radius: 0 0 0 100%;
+    transition: all 0.4s;
+}
+
+.page-link:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -5px rgba(20, 184, 166, 0.15);
+}
+
+.page-link:hover::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    opacity: 0.03;
+}
+
+.page-link .number {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.page-link .title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--text-main);
+}
+
+.page-link .desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+.badge-new {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.badge-core {
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.badge-util {
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    background: var(--primary-gradient);
+    padding: 4rem 2rem;
+    border-radius: 2.5rem;
+    color: white;
+    box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.2);
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+}
+
+.header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stats {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2.5rem;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 160px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.footer-card {
+    text-align: center;
+    margin: 4rem 0;
+    padding: 3rem;
+    background: white;
+    border-radius: 2rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 640px) {
+    .test-container {
+        padding: 1rem;
+    }
+
+    .header {
+        padding: 3rem 1.5rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .stats {
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 1rem;
+        min-width: calc(50% - 0.5rem);
+    }
+}

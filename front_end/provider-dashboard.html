@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แดชบอร์ดผู้ให้บริการ - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- Income Header Card -->
+        <div style="padding: 2rem 2rem 0;">
+            <div class="income-header fade-in">
+                <div class="income-amount">฿2,450</div>
+                <div class="income-label">รายได้วันนี้</div>
+
+                <div class="income-stats">
+                    <div class="income-stat-item">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">งานเสร็จสิ้น</div>
+                    </div>
+                    <div class="income-stat-item">
+                        <div class="stat-value">4.8 ⭐</div>
+                        <div class="stat-label">คะแนนเฉลี่ย</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity List -->
+        <div class="content-container-with-nav">
+            <h2 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem;">กิจกรรมล่าสุด</h2>
+
+            <div class="fade-in" style="animation-delay: 0.1s;">
+                <div class="activity-item">
+                    <div class="activity-info">
+                        <h4>คุณสมชาย ใจดี</h4>
+                        <p>ดูแลผู้สูงอายุ • บ้านเลขที่ 123</p>
+                    </div>
+                    <div class="activity-meta">
+                        <div class="activity-time">14:30 น.</div>
+                        <span class="badge-completed">เสร็จสิ้น</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-info">
+                        <h4>คุณสมหญิง รักดี</h4>
+                        <p>ตรวจสุขภาพ • โรงพยาบาลกรุงเทพ</p>
+                    </div>
+                    <div class="activity-meta">
+                        <div class="activity-time">12:00 น.</div>
+                        <span class="badge-completed">เสร็จสิ้น</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-info">
+                        <h4>คุณวิชัย มีสุข</h4>
+                        <p>ฟื้นฟูสมรรถภาพ • บ้านเลขที่ 456</p>
+                    </div>
+                    <div class="activity-meta">
+                        <div class="activity-time">10:15 น.</div>
+                        <span class="badge-pending">กำลังดำเนินการ</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-info">
+                        <h4>คุณมานี ใจงาม</h4>
+                        <p>ดูแลผู้ป่วยติดเตียง • บ้านเลขที่ 789</p>
+                    </div>
+                    <div class="activity-meta">
+                        <div class="activity-time">08:00 น.</div>
+                        <span class="badge-completed">เสร็จสิ้น</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="provider-dashboard.html" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>หน้าแรก</span>
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>งาน</span>
+            </a>
+            <a href="provider-income.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>รายได้</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>ออกจากระบบ</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

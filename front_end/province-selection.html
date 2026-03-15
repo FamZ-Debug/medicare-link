@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกจังหวัด - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <a href="region-selection.html" style="color: var(--text-main); text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+            <h3 style="font-weight: 800;">เลือกจังหวัด</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content">
+            <div style="margin-bottom: 1.5rem;">
+                <input type="text" id="searchInput" placeholder="ค้นหาจังหวัด..." class="input-field"
+                    style="padding-left: 2.5rem; background-image: url('data:image/svg+xml,%3Csvg width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%239ca3af\' stroke-width=\'2\'%3E%3Ccircle cx=\'11\' cy=\'11\' r=\'8\'/%3E%3Cpath d=\'m21 21-4.35-4.35\'/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: 0.75rem center;">
+            </div>
+
+            <p id="regionName" style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;"></p>
+
+            <div id="provinceList" style="display: grid; gap: 0.75rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        const provinces = {
+            central: [
+                'พระนครศรีอยุธยา', 'อ่างทอง', 'ลพบุรี', 'สิงห์บุรี', 'ชัยนาท', 'สระบุรี',
+                'ชลบุรี', 'ระยอง', 'จันทบุรี', 'ตราด', 'ฉะเชิงเทรา', 'ปราจีนบุรี',
+                'นครนายก', 'สมุทรปราการ', 'สมุทรสาคร', 'สมุทรสงคราม'
+            ],
+            north: [
+                'เชียงใหม่', 'เชียงราย', 'ลำปาง', 'ลำพูน', 'แม่ฮ่องสอน', 'น่าน',
+                'พะเยา', 'แพร่', 'อุตรดิตถ์', 'ตาก', 'สุโขทัย', 'พิษณุโลก',
+                'พิจิตร', 'เพชรบูรณ์', 'กำแพงเพชร', 'นครสวรรค์', 'อุทัยธานี'
+            ],
+            northeast: [
+                'นครราชสีมา', 'บุรีรัมย์', 'สุรินทร์', 'ศรีสะเกษ', 'อุบลราชธานี',
+                'ยโสธร', 'ชัยภูมิ', 'อำนาจเจริญ', 'หนองบัวลำภู', 'ขอนแก่น',
+                'อุดรธานี', 'เลย', 'หนองคาย', 'มหาสารคาม', 'ร้อยเอ็ด',
+                'กาฬสินธุ์', 'สกลนคร', 'นครพนม', 'มุกดาหาร', 'บึงกาฬ'
+            ],
+            east: [
+                'ชลบุรี', 'ระยอง', 'จันทบุรี', 'ตราด', 'ฉะเชิงเทรา', 'ปราจีนบุรี', 'สระแก้ว'
+            ],
+            south: [
+                'ชุมพร', 'ระนอง', 'สุราษฎร์ธานี', 'พังงา', 'ภูเก็ต', 'กระบี่',
+                'นครศรีธรรมราช', 'ตรัง', 'พัทลุง', 'สตูล', 'สงขลา', 'ปัตตานี',
+                'ยะลา', 'นราธิวาส'
+            ]
+        };
+
+        const regionNames = {
+            central: 'ภาคกลาง',
+            north: 'ภาคเหนือ',
+            northeast: 'ภาคตะวันออกเฉียงเหนือ',
+            east: 'ภาคตะวันออก',
+            south: 'ภาคใต้'
+        };
+
+        // Get region from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const region = urlParams.get('region') || 'central';
+
+        document.getElementById('regionName').textContent = `${regionNames[region]} - เลือกจังหวัดที่ต้องการใช้บริการ`;
+
+        function renderProvinces(filter = '') {
+            const list = document.getElementById('provinceList');
+            list.innerHTML = '';
+
+            const filteredProvinces = provinces[region].filter(p =>
+                p.includes(filter)
+            );
+
+            filteredProvinces.forEach((province, index) => {
+                const card = document.createElement('div');
+                card.className = 'fade-in';
+                card.style.cssText = `
+                    animation-delay: ${index * 0.05}s;
+                    background: white;
+                    padding: 1rem 1.25rem;
+                    border-radius: 0.75rem;
+                    border: 1px solid #e5e7eb;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                `;
+                card.innerHTML = `
+                    <span style="font-weight: 700;">${province}</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                `;
+                card.onclick = () => selectProvince(province);
+
+                card.addEventListener('mouseenter', function () {
+                    this.style.borderColor = '#14b8a6';
+                    this.style.transform = 'translateX(4px)';
+                });
+                card.addEventListener('mouseleave', function () {
+                    this.style.borderColor = '#e5e7eb';
+                    this.style.transform = 'translateX(0)';
+                });
+
+                list.appendChild(card);
+            });
+
+            if (filteredProvinces.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 2rem;">ไม่พบจังหวัดที่ค้นหา</p>';
+            }
+        }
+
+        function selectProvince(province) {
+            localStorage.setItem('selectedProvince', province);
+            window.location.href = 'mode-selection.html';
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderProvinces(e.target.value);
+        });
+
+        // Initial render
+        renderProvinces();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กำลังให้บริการ - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <div style="width: 24px;"></div>
+            <h3 style="font-weight: 800; color: #10b981;">กำลังให้บริการ</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content">
+            <!-- Timer Card -->
+            <div class="fade-in"
+                style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 1.5rem; padding: 2rem; color: white; box-shadow: 0 10px 15px rgba(16, 185, 129, 0.2); margin-bottom: 1.5rem; text-align: center;">
+                <p style="color: #d1fae5; font-size: 0.875rem; margin-bottom: 0.5rem;">เวลาที่ใช้บริการ</p>
+                <h1 id="timer"
+                    style="font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; font-variant-numeric: tabular-nums;">
+                    00:00:00</h1>
+                <p style="font-size: 0.875rem; color: #d1fae5;">เริ่มเวลา 10:30 น.</p>
+            </div>
+
+            <!-- Provider Info -->
+            <div class="fade-in"
+                style="animation-delay: 0.1s; background: white; padding: 1.25rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div
+                        style="width: 3.5rem; height: 3.5rem; background: #ccfbf1; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #14b8a6;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.25rem;">พยาบาลแอน</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">กำลังให้บริการ</p>
+                    </div>
+                    <a href="tel:089xxxxxxx"
+                        style="width: 2.5rem; height: 2.5rem; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #16a34a; text-decoration: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Details -->
+            <div class="fade-in"
+                style="animation-delay: 0.2s; background: white; padding: 1.25rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem;">รายละเอียดบริการ</h3>
+
+                <div style="font-size: 0.875rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
+                            stroke-width="2" style="margin-top: 0.125rem;">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div>
+                            <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.125rem;">บริการ</p>
+                            <p style="color: var(--text-muted);">พาไปหาหมอ</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
+                            stroke-width="2" style="margin-top: 0.125rem;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <div>
+                            <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.125rem;">สถานที่</p>
+                            <p style="color: var(--text-muted);">โรงพยาบาลจุฬาลงกรณ์</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOS Button -->
+            <button onclick="showSOS()" class="fade-in"
+                style="animation-delay: 0.3s; width: 100%; background: #fee2e2; color: #dc2626; padding: 1rem; border-radius: 0.75rem; border: 2px solid #fecaca; font-weight: 700; cursor: pointer; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                ฉุกเฉิน (SOS)
+            </button>
+
+            <!-- Complete Button -->
+            <button onclick="completeService()" class="btn btn-primary fade-in"
+                style="animation-delay: 0.4s; width: 100%; padding: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                ยืนยันจบบริการ
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let startTime = new Date();
+        let timerInterval;
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startTime;
+
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById('timer').textContent =
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function showSOS() {
+            if (confirm('คุณต้องการแจ้งเหตุฉุกเฉินหรือไม่?\n\nระบบจะติดต่อเจ้าหน้าที่ทันที')) {
+                alert('กำลังติดต่อเจ้าหน้าที่... โทร 1669');
+            }
+        }
+
+        function completeService() {
+            if (confirm('ยืนยันการจบบริการ?\n\nคุณจะถูกนำไปหน้าชำระเงินและรีวิว')) {
+                clearInterval(timerInterval);
+                const duration = Math.floor((new Date() - startTime) / 60000); // minutes
+                localStorage.setItem('serviceDuration', duration);
+                window.location.href = 'review.html';
+            }
+        }
+
+        // Start timer
+        timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+
+</html>

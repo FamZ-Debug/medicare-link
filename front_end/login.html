@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เข้าสู่ระบบ - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <a href="index.html"
+                style="color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+                <span>ย้อนกลับ</span>
+            </a>
+        </div>
+
+        <div class="content content-centered">
+            <div class="fade-in">
+                <h1 class="mb-2">ยินดีต้อนรับ!</h1>
+                <p class="subtitle mb-8">กรุณาเข้าสู่ระบบเพื่อใช้งาน</p>
+
+                <form action="role-selection.html" id="loginForm">
+                    <div class="input-group">
+                        <label for="email">อีเมล / เบอร์โทรศัพท์</label>
+                        <input type="text" id="email" class="input-field" placeholder="ตัวอย่าง: 0812345678" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">รหัสผ่าน</label>
+                        <input type="password" id="password" class="input-field" placeholder="••••••••" required>
+                    </div>
+
+                    <div style="text-align: right; margin-bottom: 2rem;">
+                        <a href="#"
+                            style="color: var(--primary-color); text-decoration: none; font-size: 0.875rem; font-weight: 500;">ลืมรหัสผ่าน?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
+                </form>
+
+                <div class="text-center mt-8">
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">
+                        ยังไม่มีบัญชี? <a href="register.html"
+                            style="color: var(--primary-color); text-decoration: none; font-weight: 600;">ลงทะเบียนที่นี่</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

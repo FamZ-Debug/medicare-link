@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container has-bottom-nav">
+        <!-- Header -->
+        <header class="home-header">
+            <div class="user-info">
+                <p class="subtitle" style="font-size: 0.875rem;">สวัสดีตอนเช้า 👋</p>
+                <h2>คุณสมชาย ใจดี</h2>
+            </div>
+            <button class="notification-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+            </button>
+        </header>
+
+        <!-- Main Content (Scrolling Area) -->
+        <div class="content">
+            <!-- Health Card -->
+            <div class="fade-in"
+                style="background: var(--primary-gradient); border-radius: 2rem; padding: 1.5rem; color: white; box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.2); margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span style="font-weight: 600; opacity: 0.9;">การนัดหมายครั้งต่อไป</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.2); color: white;">ในอีก 2 วัน</span>
+                </div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">ตรวจสุขภาพประจำปี</h3>
+                <p style="font-size: 0.875rem; opacity: 0.8;">18 ก.พ. 2026 | 09:00 น.</p>
+                <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <div
+                        style="width: 32px; height: 32px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.875rem;">โรงพยาบาลกรุงเทพ</span>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="fade-in" style="animation-delay: 0.1s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="font-weight: 800;">บริการของเรา</h3>
+                    <a href="#"
+                        style="color: var(--primary-color); text-decoration: none; font-size: 0.875rem; font-weight: 600;">ดูทั้งหมด</a>
+                </div>
+
+                <div class="service-grid">
+                    <a href="mode-selection.html" class="service-card">
+                        <div class="icon-box bg-rose-light">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                            </svg>
+                        </div>
+                        <h3>เรียกรถพยาบาล</h3>
+                    </a>
+
+                    <a href="mode-selection.html" class="service-card">
+                        <div class="icon-box bg-teal-light">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                                <path d="M7 21h10" />
+                                <path d="M12 3v18" />
+                                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+                            </svg>
+                        </div>
+                        <h3>นัดหมายแพทย์</h3>
+                    </a>
+
+                    <a href="mode-selection.html" class="service-card">
+                        <div class="icon-box bg-blue-light">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 21a9 9 0 1 0-9-9c0 1.48.35 2.89 1.01 4.14L3 21l4.86-1.01A8.96 8.96 0 0 0 12 21Z" />
+                                <path d="M12 7v5l2 2" />
+                            </svg>
+                        </div>
+                        <h3>ปรึกษาออนไลน์</h3>
+                    </a>
+
+                    <a href="mode-selection.html" class="service-card">
+                        <div class="icon-box bg-purple-light">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+                                <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4" />
+                                <path d="M13 13h4" />
+                                <path d="M13 17h4" />
+                                <path d="M7 13h2v4H7z" />
+                            </svg>
+                        </div>
+                        <h3>บริการที่บ้าน</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                <span>หน้าแรก</span>
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 20h.01" />
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.29 7 12 12 20.71 7" />
+                    <line x1="12" y1="22" x2="12" y2="12" />
+                </svg>
+                <span>กิจกรรม</span>
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0" />
+                </svg>
+                <span>แจ้งเตือน</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+                <span>โปรไฟล์</span>
+            </a>
+        </nav>
+    </div>
+    <script src="js/location-service.js"></script>
+    <script>
+        window.addEventListener('load', async () => {
+            try {
+                // Pre-fetch location to improve UX in subsequent screens
+                const pos = await LocationService.getCurrentPosition();
+                LocationService.saveToLocal('userLocation', pos);
+                console.log('Location pre-fetched:', pos);
+            } catch (err) {
+                console.warn('Location pre-fetch failed:', err);
+            }
+        });
+    </script>
+</body>
+
+</html>

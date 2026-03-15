@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกประเภทผู้ป่วย - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <div class="page-header">
+            <button class="back-btn" onclick="history.back()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <h1>เลือกประเภทผู้ป่วย</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content-container">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- Elderly Category -->
+                <a href="home.html" class="category-card fade-in">
+                    <div class="category-icon bg-amber-light">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>ผู้สูงอายุ (Elderly)</h3>
+                        <p>บริการดูแลผู้สูงอายุ ตรวจสุขภาพ และดูแลประจำวัน</p>
+                    </div>
+                </a>
+
+                <!-- Bedridden Category -->
+                <a href="home.html" class="category-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="category-icon bg-rose-light">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 16s0-2 2-2h16s2 0 2 2" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M2 8h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>ผู้ป่วยติดเตียง (Bedridden)</h3>
+                        <p>บริการดูแลผู้ป่วยติดเตียง พยาบาลประจำ</p>
+                    </div>
+                </a>
+
+                <!-- Disabled Category -->
+                <a href="home.html" class="category-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="category-icon bg-blue-light">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>ผู้พิการ (Disabled)</h3>
+                        <p>บริการดูแลผู้พิการ ฟื้นฟูสมรรถภาพ</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

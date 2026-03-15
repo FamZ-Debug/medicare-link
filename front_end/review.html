@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รีวิวบริการ - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .star {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <div style="width: 24px;"></div>
+            <h3 style="font-weight: 800;">รีวิวบริการ</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content">
+            <!-- Success Message -->
+            <div class="fade-in" style="text-align: center; margin-bottom: 2rem;">
+                <div
+                    style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                </div>
+                <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">บริการเสร็จสิ้น</h2>
+                <p style="color: var(--text-muted);">ขอบคุณที่ใช้บริการ MediCare Link</p>
+            </div>
+
+            <!-- Service Summary -->
+            <div class="fade-in"
+                style="animation-delay: 0.1s; background: white; padding: 1.25rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem;">สรุปการใช้บริการ</h3>
+
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #f3f4f6;">
+                    <span style="color: var(--text-muted);">บริการ</span>
+                    <span style="font-weight: 700;">พาไปหาหมอ</span>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #f3f4f6;">
+                    <span style="color: var(--text-muted);">ผู้ดูแล</span>
+                    <span style="font-weight: 700;">พยาบาลแอน</span>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #f3f4f6;">
+                    <span style="color: var(--text-muted);">ระยะเวลา</span>
+                    <span style="font-weight: 700;" id="duration">1 ชั่วโมง 30 นาที</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                    <span style="font-size: 1.125rem; font-weight: 700;">ยอดชำระ</span>
+                    <span style="font-size: 1.5rem; font-weight: 800; color: #10b981;">฿550</span>
+                </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="fade-in"
+                style="animation-delay: 0.2s; background: white; padding: 1.5rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem; text-align: center;">ให้คะแนนบริการ</h3>
+
+                <div id="stars" style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <svg class="star" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db"
+                        stroke-width="2" onclick="setRating(1)">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <svg class="star" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db"
+                        stroke-width="2" onclick="setRating(2)">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <svg class="star" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db"
+                        stroke-width="2" onclick="setRating(3)">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <svg class="star" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db"
+                        stroke-width="2" onclick="setRating(4)">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <svg class="star" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db"
+                        stroke-width="2" onclick="setRating(5)">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </div>
+
+                <textarea id="comment" placeholder="แสดงความคิดเห็น (ไม่บังคับ)" class="input-field"
+                    style="min-height: 6rem; resize: vertical;"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="submitReview()" class="btn btn-primary fade-in"
+                style="animation-delay: 0.3s; width: 100%; padding: 1rem;">
+                ส่งรีวิว
+            </button>
+
+            <button onclick="skipReview()"
+                style="background: none; border: none; color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem; cursor: pointer; text-decoration: underline; width: 100%;">
+                ข้ามขั้นตอนนี้
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let rating = 0;
+
+        function setRating(value) {
+            rating = value;
+            const stars = document.querySelectorAll('.star');
+
+            stars.forEach((star, index) => {
+                if (index < value) {
+                    star.setAttribute('fill', '#fbbf24');
+                    star.setAttribute('stroke', '#fbbf24');
+                } else {
+                    star.setAttribute('fill', 'none');
+                    star.setAttribute('stroke', '#d1d5db');
+                }
+            });
+        }
+
+        function submitReview() {
+            if (rating === 0) {
+                alert('กรุณาให้คะแนนบริการ');
+                return;
+            }
+
+            const comment = document.getElementById('comment').value;
+
+            // Save review data
+            localStorage.setItem('lastReview', JSON.stringify({
+                rating,
+                comment,
+                date: new Date().toISOString()
+            }));
+
+            alert('ขอบคุณสำหรับรีวิว!');
+            window.location.href = 'home.html';
+        }
+
+        function skipReview() {
+            if (confirm('คุณต้องการข้ามการรีวิวหรือไม่?')) {
+                window.location.href = 'home.html';
+            }
+        }
+
+        // Load duration from localStorage
+        const duration = localStorage.getItem('serviceDuration');
+        if (duration) {
+            const hours = Math.floor(duration / 60);
+            const minutes = duration % 60;
+            document.getElementById('duration').textContent =
+                `${hours > 0 ? hours + ' ชั่วโมง ' : ''}${minutes} นาที`;
+        }
+    </script>
+</body>
+
+</html>
