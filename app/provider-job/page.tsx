@@ -20,6 +20,7 @@ export default function ProviderJobPage() {
         if (typeof window !== 'undefined') {
             import('leaflet').then((leaflet) => {
                 L = leaflet.default;
+                // @ts-ignore
                 import('leaflet/dist/leaflet.css');
                 setMapLoaded(true);
             });

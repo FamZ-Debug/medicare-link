@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bell, User, LayoutDashboard, Wallet, ClipboardList, Power, Check, X, Clock, MapPin } from 'lucide-react';
+import { Bell, User, LayoutDashboard, Wallet, ClipboardList, Power, Check, X, Clock, MapPin, Image as ImageIcon } from 'lucide-react';
 import MobileContainer from '@/components/MobileContainer';
 import BottomNav from '@/components/BottomNav';
 import IncomeHeader from '@/components/IncomeHeader';
@@ -137,7 +137,7 @@ export default function ProviderDashboardPage() {
                                         <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mb-4 text-gray-300">
                                             <Power size={32} />
                                         </div>
-                                        <h4 className="font-bold text-gray-400">กรุณาเปิดสถานะ "ออนไลน์"</h4>
+                                        <h4 className="font-bold text-gray-400">กรุณาเปิดสถานะ &quot;ออนไลน์&quot;</h4>
                                         <p className="text-xs text-gray-400 mt-1">เพื่อรับงานจากลูกค้าในพื้นที่ของคุณ</p>
                                     </div>
                                 )}

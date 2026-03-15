@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Send, Image, User, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Send, Image as ImageIcon, User, CheckCircle2 } from 'lucide-react';
 import MobileContainer from '@/components/MobileContainer';
 
 interface Message {
@@ -78,8 +78,8 @@ export default function ChatPage() {
                             className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
                         >
                             <div className={`max-w-[80%] p-4 rounded-3xl text-sm font-medium shadow-sm ${
-                                msg.sender === 'user' 
-                                ? 'bg-primary text-white rounded-tr-none' 
+                                msg.sender === 'user'
+                                ? 'bg-primary text-white rounded-tr-none'
                                 : 'bg-white text-text-main rounded-tl-none'
                             }`}>
                                 {msg.text}
@@ -93,19 +93,19 @@ export default function ChatPage() {
                 <div className="p-6 bg-white border-t border-gray-100 pb-10">
                     <div className="flex items-center gap-3">
                         <button className="w-12 h-12 rounded-2xl bg-gray-50 text-gray-400 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                            <Image size={24} />
+                            <ImageIcon size={24} />
                         </button>
                         <div className="flex-1 bg-gray-50 rounded-2xl px-4 flex items-center border border-gray-200 focus-within:border-primary transition-all">
-                            <input 
-                                type="text" 
-                                placeholder="พิมพ์ข้อความ..." 
+                            <input
+                                type="text"
+                                placeholder="พิมพ์ข้อความ..."
                                 className="w-full h-12 bg-transparent text-sm font-medium border-none focus:ring-0 outline-none"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                             />
                         </div>
-                        <button 
+                        <button
                             onClick={handleSend}
                             disabled={!inputValue.trim()}
                             className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/20 disabled:opacity-50 disabled:shadow-none transition-all"
