@@ -3,6 +3,8 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     output: 'export',
+    basePath: '/medicare-link',
+    assetPrefix: '/medicare-link',
     images: {
         unoptimized: true,
         formats: ['image/avif', 'image/webp'],
