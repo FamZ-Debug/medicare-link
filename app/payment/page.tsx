@@ -8,6 +8,7 @@ import MobileContainer from '@/components/MobileContainer';
 import Button from '@/components/ui/Button';
 import { fadeInVariants, staggerContainerVariants } from '@/utils/animations';
 import { useBookingStore } from '@/store/bookingStore';
+import { useHistoryStore } from '@/store/historyStore';
 import { PaymentMethod } from '@/types';
 
 const paymentMethods = [
@@ -21,15 +22,23 @@ export default function PaymentPage() {
     const [loading, setLoading] = useState(false);
     const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>('promptpay');
     const { booking, updateBooking } = useBookingStore();
+    const addBooking = useHistoryStore((s) => s.addBooking);
 
     const handlePayment = async () => {
         setLoading(true);
         updateBooking({ paymentMethod: selectedMethod });
 
-        // Simulate payment processing
         await new Promise(resolve => setTimeout(resolve, 2000));
+
+        addBooking({
+            ...booking,
+            paymentMethod: selectedMethod,
+            status: booking.mode === 'quick' ? 'accepted' : 'waiting',
+            userId: booking.userId || 'me',
+        } as any);
+
         setLoading(false);
-        
+
         if (booking.mode === 'quick') {
             router.push('/tracking');
         } else {

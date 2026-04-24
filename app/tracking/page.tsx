@@ -56,7 +56,7 @@ export default function TrackingPage() {
             const proIcon = L.divIcon({
                 className: '',
                 html: `
-                    <div style="width: 44px; height: 44px; background: white; border-radius: 12px; border: 2px solid #14b8a6; display: flex; items-center; justify-center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: 800; color: #14b8a6; font-size: 18px;">
+                    <div style="width: 44px; height: 44px; background: white; border-radius: 12px; border: 2px solid #14b8a6; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: 800; color: #14b8a6; font-size: 18px;">
                         A
                     </div>
                 `,
@@ -85,8 +85,8 @@ export default function TrackingPage() {
     }, [mapLoaded]);
 
     const handleFinish = () => {
-        setStatus('completed');
-        router.push('/success');
+        setStatus('arrived');
+        router.push('/in-progress');
     };
 
     return (
@@ -100,10 +100,10 @@ export default function TrackingPage() {
                     >
                         <ArrowLeft size={20} />
                     </button>
-                    <div className="bg-rose-500 text-white px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 font-bold cursor-pointer hover:bg-rose-600 transition-colors" onClick={() => setShowSOSModal(true)}>
+                    <button className="bg-rose-500 text-white px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 font-bold cursor-pointer hover:bg-rose-600 transition-colors" onClick={() => router.push('/sos')}>
                         <ShieldAlert size={18} />
-                        <span>ขอความช่วยเหลือ (SOS)</span>
-                    </div>
+                        <span>SOS</span>
+                    </button>
                 </div>
 
                 {/* Map */}
@@ -163,7 +163,7 @@ export default function TrackingPage() {
                         </div>
 
                         <Button onClick={handleFinish}>
-                            เสร็จสิ้นบริการ
+                            ผู้ดูแลถึงแล้ว เริ่มบริการ
                         </Button>
                     </motion.div>
                 </div>

@@ -2,21 +2,21 @@
     "name": "MediCare Link - ดูแลคนที่คุณรัก",
     "short_name": "MediCare Link",
     "description": "บริการดูแลสุขภาพครบวงจร เรียกรถพยาบาล นัดหมายแพทย์ ปรึกษาออนไลน์",
-    "start_url": "/",
+    "start_url": "/medicare-link/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#14b8a6",
     "orientation": "portrait",
-    "scope": "/",
+    "scope": "/medicare-link/",
     "icons": [
         {
-            "src": "/icon-192x192.svg",
+            "src": "/medicare-link/icon-192x192.svg",
             "sizes": "192x192",
             "type": "image/svg+xml",
             "purpose": "any maskable"
         },
         {
-            "src": "/icon-512x512.svg",
+            "src": "/medicare-link/icon-512x512.svg",
             "sizes": "512x512",
             "type": "image/svg+xml",
             "purpose": "any maskable"

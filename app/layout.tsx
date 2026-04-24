@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
     title: 'MediCare Link - ดูแลคนที่คุณรัก',
     description: 'บริการดูแลสุขภาพครบวงจร เรียกรถพยาบาล นัดหมายแพทย์ ปรึกษาออนไลน์',
-    manifest: '/manifest.json',
+    manifest: '/medicare-link/manifest.json',
     appleWebApp: {
         capable: true,
         statusBarStyle: 'default',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
         telephone: false,
     },
     icons: {
-        icon: '/icon-192x192.svg',
-        apple: '/icon-192x192.svg',
+        icon: '/medicare-link/icon-192x192.svg',
+        apple: '/medicare-link/icon-192x192.svg',
     },
 };
 

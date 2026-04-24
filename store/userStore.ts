@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { User } from '@/types';
 
 interface UserStore {
@@ -9,18 +10,24 @@ interface UserStore {
     logout: () => void;
 }
 
-export const useUserStore = create<UserStore>((set) => ({
-    user: null,
-    isAuthenticated: false,
+export const useUserStore = create<UserStore>()(
+    persist(
+        (set) => ({
+            user: null,
+            isAuthenticated: false,
 
-    setUser: (user) =>
-        set({ user, isAuthenticated: true }),
+            setUser: (user) => set({ user, isAuthenticated: true }),
 
-    updateUser: (data) =>
-        set((state) => ({
-            user: state.user ? { ...state.user, ...data } : null,
-        })),
+            updateUser: (data) =>
+                set((state) => ({
+                    user: state.user ? { ...state.user, ...data } : null,
+                })),
 
-    logout: () =>
-        set({ user: null, isAuthenticated: false }),
-}));
+            logout: () => set({ user: null, isAuthenticated: false }),
+        }),
+        {
+            name: 'medicare-user',
+            storage: createJSONStorage(() => (typeof window !== 'undefined' ? localStorage : (undefined as any))),
+        }
+    )
+);

@@ -19,7 +19,7 @@ export default function RegionSelectionPage() {
     const handleNext = () => {
         if (!selectedRegion) return;
         updateBooking({ region: selectedRegion });
-        router.push('/booking-mode');
+        router.push('/province-selection');
     };
 
     return (

@@ -11,7 +11,7 @@ export default function BottomNav() {
 
     const userTabs = [
         { href: '/home', icon: Home, label: 'หน้าแรก' },
-        { href: '/activity', icon: Activity, label: 'กิจกรรม' },
+        { href: '/history', icon: Activity, label: 'ประวัติ' },
         { href: '/notifications', icon: Bell, label: 'แจ้งเตือน' },
         { href: '/profile', icon: User, label: 'โปรไฟล์' },
     ];

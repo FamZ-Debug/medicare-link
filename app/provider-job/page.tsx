@@ -42,7 +42,7 @@ export default function ProviderJobPage() {
             // Dest Icon
             const destIcon = L.divIcon({
                 className: '',
-                html: `<div style="width: 32px; height: 32px; background: #rose-500; display: flex; items-center; justify-center;"><div style="width: 16px; height: 16px; background: #e11d48; border: 3px solid white; border-radius: 50%;"></div></div>`,
+                html: `<div style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"><div style="width: 16px; height: 16px; background: #e11d48; border: 3px solid white; border-radius: 50%; box-shadow: 0 0 0 4px rgba(225,29,72,0.2);"></div></div>`,
                 iconSize: [32, 32],
                 iconAnchor: [16, 16]
             });

@@ -16,7 +16,7 @@ export default function BookingModePage() {
         if (mode === 'quick') {
             router.push('/grab-search');
         } else {
-            router.push('/request');
+            router.push('/booking-search');
         }
     };
 
