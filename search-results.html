@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลการค้นหา - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for GPS Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/location-service.js"></script>
+
+    <style>
+        .leaflet-container {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .user-marker-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .provider-marker-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .provider-card {
+            min-width: 14rem;
+            background: white;
+            border: 1px solid #f3f4f6;
+            padding: 1rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .provider-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .active-card {
+            border: 2px solid var(--primary-color);
+            background: #f0fdfa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="header-nav">
+            <a href="grab-search.html" style="color: var(--text-main); text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+            <h3 style="font-weight: 800;">ผลการค้นหา</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div style="flex: 1; position: relative; display: flex; flex-direction: column;">
+            <!-- Real Leaflet Map Container -->
+            <div id="resultsMap" style="flex: 1; z-index: 1;"></div>
+
+            <!-- Overlay for Results -->
+            <div style="position: absolute; bottom: 1.5rem; left: 0; right: 0; z-index: 10; padding: 0 1rem;">
+                <div
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-radius: 2rem; padding: 1.25rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); border: 1px solid rgba(255,255,255,0.5);">
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding: 0 0.5rem;">
+                        <div>
+                            <p style="font-size: 0.875rem; font-weight: 800; color: var(--text-main);">พบผู้ดูแล 3 ท่าน
+                            </p>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">ใกล้ตำแหน่งของคุณ</p>
+                        </div>
+                        <div
+                            style="font-size: 0.75rem; color: #14b8a6; background: #ccfbf1; padding: 0.375rem 0.75rem; border-radius: 1rem; display: flex; align-items: center; gap: 0.375rem; font-weight: 700;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            เขตปทุมวัน
+                        </div>
+                    </div>
+
+                    <div
+                        style="display: flex; gap: 0.75rem; overflow-x: auto; padding: 0.25rem 0.25rem 0.75rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+                        <!-- Staff Card 1 -->
+                        <div class="provider-card" id="card-0" onclick="focusProvider(0)"
+                            style="scroll-snap-align: center;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <div
+                                    style="width: 3rem; height: 3rem; border-radius: 50%; background: #ccfbf1; color: #14b8a6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800;">
+                                    A
+                                </div>
+                                <div style="flex: 1; min-width: 0;">
+                                    <p
+                                        style="font-size: 1rem; font-weight: 800; color: #1e293b; margin-bottom: 0.125rem;">
+                                        พยาบาลแอน</p>
+                                    <div
+                                        style="display: flex; align-items: center; font-size: 0.75rem; color: #64748b; font-weight: 600;">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24"
+                                            style="margin-right: 0.25rem;">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                        4.9 (124) • 0.5 กม.
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button onclick="event.stopPropagation(); window.location.href='provider-profile.html'"
+                                    class="btn"
+                                    style="flex: 1; padding: 0.5rem; font-size: 0.75rem; background: #f1f5f9; color: #475569;">โปรไฟล์</button>
+                                <button onclick="event.stopPropagation(); window.location.href='payment.html'"
+                                    class="btn btn-primary"
+                                    style="flex: 2; padding: 0.5rem; font-size: 0.75rem;">เลือกคนนี้</button>
+                            </div>
+                        </div>
+
+                        <!-- Staff Card 2 -->
+                        <div class="provider-card" id="card-1" onclick="focusProvider(1)"
+                            style="scroll-snap-align: center;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <div
+                                    style="width: 3rem; height: 3rem; border-radius: 50%; background: #fed7aa; color: #f97316; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800;">
+                                    S
+                                </div>
+                                <div style="flex: 1; min-width: 0;">
+                                    <p
+                                        style="font-size: 1rem; font-weight: 800; color: #1e293b; margin-bottom: 0.125rem;">
+                                        คุณสมชาย</p>
+                                    <div
+                                        style="display: flex; align-items: center; font-size: 0.75rem; color: #64748b; font-weight: 600;">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24"
+                                            style="margin-right: 0.25rem;">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                        4.5 (89) • 1.2 กม.
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button onclick="event.stopPropagation(); window.location.href='provider-profile.html'"
+                                    class="btn"
+                                    style="flex: 1; padding: 0.5rem; font-size: 0.75rem; background: #f1f5f9; color: #475569;">โปรไฟล์</button>
+                                <button onclick="event.stopPropagation(); window.location.href='payment.html'"
+                                    class="btn btn-primary"
+                                    style="flex: 2; padding: 0.5rem; font-size: 0.75rem;">เลือกคนนี้</button>
+                            </div>
+                        </div>
+
+                        <!-- Staff Card 3 -->
+                        <div class="provider-card" id="card-2" onclick="focusProvider(2)"
+                            style="scroll-snap-align: center;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <div
+                                    style="width: 3rem; height: 3rem; border-radius: 50%; background: #ccfbf1; color: #14b8a6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800;">
+                                    K
+                                </div>
+                                <div style="flex: 1; min-width: 0;">
+                                    <p
+                                        style="font-size: 1rem; font-weight: 800; color: #1e293b; margin-bottom: 0.125rem;">
+                                        พยาบาลก้อย</p>
+                                    <div
+                                        style="display: flex; align-items: center; font-size: 0.75rem; color: #64748b; font-weight: 600;">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24"
+                                            style="margin-right: 0.25rem;">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                        5.0 (210) • 2.0 กม.
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button onclick="event.stopPropagation(); window.location.href='provider-profile.html'"
+                                    class="btn"
+                                    style="flex: 1; padding: 0.5rem; font-size: 0.75rem; background: #f1f5f9; color: #475569;">โปรไฟล์</button>
+                                <button onclick="event.stopPropagation(); window.location.href='payment.html'"
+                                    class="btn btn-primary"
+                                    style="flex: 2; padding: 0.5rem; font-size: 0.75rem;">เลือกคนนี้</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let providerMarkers = [];
+        let userPosition = LocationService.getFromLocal('userLocation') || LocationService.DEFAULT_CENTER;
+
+        const providers = [
+            { name: "พยาบาลแอน", lat: 13.7583, lng: 100.4988, dist: "0.5 กม.", color: "#14b8a6", initial: "A" },
+            { name: "คุณสมชาย", lat: 13.7523, lng: 100.5108, dist: "1.2 กม.", color: "#f97316", initial: "S" },
+            { name: "พยาบาลก้อย", lat: 13.7653, lng: 100.5118, dist: "2.0 กม.", color: "#14b8a6", initial: "K" }
+        ];
+
+        window.addEventListener('load', async function () {
+            // Attempt to get fresh location if possible
+            try {
+                const freshPos = await LocationService.getCurrentPosition();
+                userPosition = freshPos;
+                LocationService.saveToLocal('userLocation', freshPos);
+            } catch (e) {
+                console.warn('Using cached location');
+            }
+            initResultsMap();
+        });
+
+        function initResultsMap() {
+            map = LocationService.initMap('resultsMap', userPosition, {
+                zoomControl: false,
+                attributionControl: false,
+                zoom: 14
+            });
+
+            // User Location Marker
+            const userIcon = L.divIcon({
+                className: 'user-marker-icon',
+                html: `<div style="width: 20px; height: 20px; background: #14b8a6; border: 3px solid white; border-radius: 50%; box-shadow: 0 0 10px rgba(20, 184, 166, 0.5); animation: pulse 2s infinite;"></div>`,
+                iconSize: [20, 20],
+                iconAnchor: [10, 10]
+            });
+            L.marker([userPosition.lat, userPosition.lng], { icon: userIcon }).addTo(map);
+
+            // Provider Markers
+            providers.forEach((p, index) => {
+                const pIcon = L.divIcon({
+                    className: 'provider-marker-icon',
+                    html: `
+                        <div style="display: flex; flex-direction: column; align-items: center; transform: translateY(-10px);">
+                            <div style="background: white; padding: 2px 8px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 4px; font-size: 10px; font-weight: 800; border: 1px solid #f1f5f9;">${p.dist}</div>
+                            <div style="width: 36px; height: 36px; background: ${p.color}; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                                <span style="color: white; font-weight: 800; font-size: 14px;">${p.initial}</span>
+                            </div>
+                        </div>
+                    `,
+                    iconSize: [40, 50],
+                    iconAnchor: [20, 50]
+                });
+
+                const marker = L.marker([p.lat, p.lng], { icon: pIcon })
+                    .addTo(map)
+                    .on('click', () => focusProvider(index));
+
+                providerMarkers.push(marker);
+            });
+
+            // Fit bounds to show all markers
+            const group = new L.featureGroup([
+                L.marker([userPosition.lat, userPosition.lng]),
+                ...providerMarkers
+            ]);
+            map.fitBounds(group.getBounds(), { padding: [80, 80] });
+        }
+
+        function focusProvider(index) {
+            const p = providers[index];
+            map.flyTo([p.lat, p.lng], 15, { duration: 1 });
+
+            document.querySelectorAll('.provider-card').forEach(c => c.classList.remove('active-card'));
+            const card = document.getElementById(`card-${index}`);
+            card.classList.add('active-card');
+            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+            providerMarkers[index].bindPopup(`<b>${p.name}</b><br>${p.dist} จากคุณ`).openPopup();
+        }
+    </script>
+</body>
+
+</html>

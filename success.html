@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สำเร็จ - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .success-check {
+            width: 100px;
+            height: 100px;
+            background: #dcfce7;
+            color: #16a34a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="fade-in">
+            <div class="success-check">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                </svg>
+            </div>
+
+            <h1 class="mb-2">จองสำเร็จ!</h1>
+            <p class="subtitle mb-8">ขอบคุณที่วางใจให้เราดูแลคุณ ระบบกำลังดำเนินการแจ้งเจ้าหน้าที่ให้ทราบ</p>
+
+            <div
+                style="background: #f8fafc; padding: 1.5rem; border-radius: 1.5rem; text-align: left; margin-bottom: 3rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">รหัสการจอง</span>
+                    <span style="font-weight: 700; font-family: monospace;">MC-20260216-001</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">บริการ</span>
+                    <span style="font-weight: 700;">นัดหมายแพทย์ทั่วไป</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">วันที่</span>
+                    <span style="font-weight: 700;">18 ก.พ. 2026 | 09:00 น.</span>
+                </div>
+            </div>
+
+            <a href="home.html" class="btn btn-primary">กลับสู่หน้าหลัก</a>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

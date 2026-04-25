@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รอการตอบรับ - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        @keyframes ping {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            75%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .animate-ping {
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div
+            style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center;">
+            <div style="position: relative; margin-bottom: 2rem;">
+                <div class="animate-ping"
+                    style="position: absolute; top: 0; left: 0; width: 8rem; height: 8rem; border: 4px solid #ccfbf1; border-radius: 50%;">
+                </div>
+                <div
+                    style="position: relative; z-index: 10; width: 8rem; height: 8rem; border: 4px solid #14b8a6; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: white;">
+                    <svg class="animate-pulse" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#14b8a6"
+                        stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                </div>
+            </div>
+
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+                กำลังรอการตอบรับ...</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 20rem;">
+                ระบบได้ส่งคำขอของคุณไปยังผู้ให้บริการแล้ว กรุณารอสักครู่</p>
+
+            <!-- Demo Info -->
+            <div
+                style="width: 100%; max-width: 24rem; background: #eff6ff; border: 1px solid #bfdbfe; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1.5rem; text-align: left;">
+                <p style="font-size: 0.75rem; color: #2563eb; font-weight: 700; margin-bottom: 0.25rem;">DEMO CONTROL:
+                </p>
+                <p style="font-size: 0.75rem; color: #3b82f6;">ในระบบจริงหน้านี้จะค้างจนกว่า Provider จะกดรับงาน.
+                    สำหรับการ Demo ให้กดปุ่มด้านล่างเพื่อไปหน้า Provider Dashboard</p>
+            </div>
+
+            <button onclick="window.location.href='provider-jobs.html'" class="btn"
+                style="width: 100%; max-width: 24rem; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; margin-bottom: 0.75rem;">
+                Demo: ไปหน้า Provider เพื่อรับงาน
+            </button>
+
+            <button onclick="window.location.href='home.html'"
+                style="background: none; border: none; color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem; cursor: pointer; text-decoration: underline;">
+                ยกเลิกการค้นหา
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

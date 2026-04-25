@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จองล่วงหน้า - MediCare Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="js/location-service.js"></script>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- ... existing header ... -->
+        <div class="header-nav">
+            <a href="home.html" style="color: var(--text-main); text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+            </a>
+            <h3 style="font-weight: 800;">จองล่วงหน้า</h3>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content">
+            <!-- Date Selection -->
+            <!-- ... existing date selection ... -->
+            <div class="fade-in"
+                style="background: white; padding: 1.5rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    เลือกวันที่ต้องการ
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">อา
+                    </div>
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">จ
+                    </div>
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">อ
+                    </div>
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">พ
+                    </div>
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">พฤ
+                    </div>
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">ศ
+                    </div>
+                    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">ส
+                    </div>
+                </div>
+
+                <div id="calendar" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem;"></div>
+            </div>
+
+            <!-- Time Selection -->
+            <!-- ... existing time selection ... -->
+            <div class="fade-in"
+                style="animation-delay: 0.1s; background: white; padding: 1.5rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    เลือกเวลา
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                    <button onclick="selectTime('08:00')" class="time-slot">08:00</button>
+                    <button onclick="selectTime('09:00')" class="time-slot">09:00</button>
+                    <button onclick="selectTime('10:00')" class="time-slot">10:00</button>
+                    <button onclick="selectTime('11:00')" class="time-slot">11:00</button>
+                    <button onclick="selectTime('13:00')" class="time-slot">13:00</button>
+                    <button onclick="selectTime('14:00')" class="time-slot">14:00</button>
+                    <button onclick="selectTime('15:00')" class="time-slot">15:00</button>
+                    <button onclick="selectTime('16:00')" class="time-slot">16:00</button>
+                    <button onclick="selectTime('17:00')" class="time-slot">17:00</button>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="fade-in"
+                style="animation-delay: 0.2s; background: white; padding: 1.5rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        สถานที่
+                    </h3>
+                    <button onclick="useCurrentLocation()"
+                        style="font-size: 0.75rem; color: var(--primary-color); border: none; background: none; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 0.25rem;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        ตำแหน่งปัจจุบัน
+                    </button>
+                </div>
+
+                <div id="addressBadge"
+                    style="display: none; background: #f0fdfa; padding: 0.75rem; border-radius: 0.75rem; border: 1px solid #ccfbf1; margin-bottom: 1rem;">
+                    <p style="font-size: 0.75rem; color: #0d9488; font-weight: 600; line-height: 1.4;"
+                        id="currentAddressText">กำลังระบุที่อยู่...</p>
+                </div>
+
+                <select id="locationSelect" class="input-field">
+                    <option value="">-- เลือกสถานที่ --</option>
+                    <option value="home">บ้านพัก (ที่อยู่ตามโปรไฟล์)</option>
+                    <option value="hospital1">โรงพยาบาลจุฬาลงกรณ์</option>
+                    <option value="hospital2">โรงพยาบาลรามาธิบดี</option>
+                    <option value="hospital3">โรงพยาบาลศิริราช</option>
+                </select>
+            </div>
+
+            <button onclick="searchProviders()" class="btn btn-primary" style="width: 100%;">
+                ค้นหาผู้ดูแล
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .time-slot {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .time-slot:hover {
+            border-color: #14b8a6;
+            background: #f0fdfa;
+        }
+
+        .time-slot.selected {
+            background: #14b8a6;
+            color: white;
+            border-color: #14b8a6;
+        }
+
+        .day-cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .day-cell.disabled {
+            color: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        .day-cell.available:hover {
+            background: #f0fdfa;
+            border-color: #14b8a6;
+        }
+
+        .day-cell.selected {
+            background: #14b8a6;
+            color: white;
+        }
+    </style>
+
+    <script>
+        let selectedDate = null;
+        let selectedTime = null;
+        let currentGPSPosition = null;
+
+        async function useCurrentLocation() {
+            const badge = document.getElementById('addressBadge');
+            const text = document.getElementById('currentAddressText');
+            badge.style.display = 'block';
+            text.textContent = 'กำลังขอพิกัด GPS...';
+
+            try {
+                const pos = await LocationService.getCurrentPosition();
+                currentGPSPosition = pos;
+                LocationService.saveToLocal('userLocation', pos);
+
+                const address = await LocationService.reverseGeocode(pos.lat, pos.lng);
+                text.textContent = `📍 ตำแหน่งปัจจุบัน: ${address}`;
+
+                // Clear dropdown if GPS is used
+                document.getElementById('locationSelect').value = '';
+            } catch (err) {
+                console.error(err);
+                text.textContent = '❌ ไม่สามารถดึงพิกัดได้ กรุณาเลือกสถานที่ในรายการ';
+                setTimeout(() => badge.style.display = 'none', 3000);
+            }
+        }
+
+        function generateCalendar() {
+            const calendar = document.getElementById('calendar');
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                calendar.appendChild(document.createElement('div'));
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(currentYear, currentMonth, day);
+                const isPast = date < today.setHours(0, 0, 0, 0);
+                const cell = document.createElement('div');
+                cell.className = 'day-cell';
+                cell.textContent = day;
+
+                if (isPast) {
+                    cell.classList.add('disabled');
+                } else {
+                    cell.classList.add('available');
+                    cell.onclick = () => selectDate(date, cell);
+                }
+                calendar.appendChild(cell);
+            }
+        }
+
+        function selectDate(date, cell) {
+            document.querySelectorAll('.day-cell.selected').forEach(c => c.classList.remove('selected'));
+            cell.classList.add('selected');
+            selectedDate = date;
+        }
+
+        function selectTime(time) {
+            document.querySelectorAll('.time-slot.selected').forEach(t => t.classList.remove('selected'));
+            event.target.classList.add('selected');
+            selectedTime = time;
+        }
+
+        function searchProviders() {
+            const locationDropdown = document.getElementById('locationSelect').value;
+            const finalLocation = currentGPSPosition ? 'GPS' : locationDropdown;
+
+            if (!selectedDate) return alert('กรุณาเลือกวันที่');
+            if (!selectedTime) return alert('กรุณาเลือกเวลา');
+            if (!finalLocation) return alert('กรุณาเลือกสถานที่ หรือ ใช้ตำแหน่งปัจจุบัน');
+
+            localStorage.setItem('bookingDate', selectedDate.toISOString());
+            localStorage.setItem('bookingTime', selectedTime);
+            localStorage.setItem('bookingLocation', finalLocation);
+            if (currentGPSPosition) LocationService.saveToLocal('userLocation', currentGPSPosition);
+
+            window.location.href = 'search-results.html?mode=booking';
+        }
+
+        generateCalendar();
+    </script>
+</body>
+
+</html>
